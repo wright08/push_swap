@@ -3,7 +3,8 @@ AR = ar
 ARFLAGS = -rcs
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
-CFLAGS += -g -fsanitize=address
+CFLAGS += #-Ofast
+CFLAGS += #-g -fsanitize=address
 INC = -I inc
 SRC_DIR = src
 OBJ_DIR = obj
@@ -22,6 +23,16 @@ SRC = \
 #	MATH
 SRC += \
 	   ft_pow
+
+#	PRINTF
+SRC += \
+	printf/float\
+	printf/int\
+	printf/chr_str_ptr_mod\
+	printf/uint\
+	printf/utils\
+	printf/ft_printf\
+	printf/parse
 
 #	STDLIB
 SRC += \
