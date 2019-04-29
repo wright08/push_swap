@@ -4,7 +4,7 @@ ARFLAGS = -rcs
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 CFLAGS += #-Ofast
-CFLAGS += #-g -fsanitize=address
+CFLAGS += -g -fsanitize=address
 INC = -I inc
 SRC_DIR = src
 OBJ_DIR = obj

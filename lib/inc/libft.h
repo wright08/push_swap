@@ -13,9 +13,6 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "ft_printf.h"
-# include "get_next_line.h"
-# include "vector.h"
 # include <stddef.h>
 # include <sys/types.h>
 
