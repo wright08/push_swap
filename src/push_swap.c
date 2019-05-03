@@ -6,8 +6,8 @@ void	solve(int *a, int n)
 	t_stack a_stack;
 	t_stack b_stack;
 
-	init(&a_stack, a, n);
-	init(&b_stack, ft_memalloc(n * sizeof(int)), -1);
+	init(&a_stack, a, n - 1, 'a');
+	init(&b_stack, ft_memalloc(n * sizeof(int)), -1, 'b');
 	simple_sort(&a_stack, &b_stack);
 }
 

@@ -38,9 +38,9 @@ int		check(int *a_stack, int n)
 	char	*line;
 	int		moves;
 
-	init(&a, a_stack, n - 1);
-	init(&b, ft_memalloc(n * sizeof(int)), -1);
-	print_stacks(a, b);
+	init(&a, a_stack, n - 1, 0);
+	init(&b, ft_memalloc(n * sizeof(int)), -1, 0);
+	//print_stacks(a, b);
 	moves = 0;
 	while (get_next_line(0, &line) == 1)
 	{
@@ -80,7 +80,7 @@ int		check(int *a_stack, int n)
 			free(b.s);
 			return (-1);
 		}
-		print_stacks(a, b);
+		//print_stacks(a, b);
 		moves++;
 	}
 	free(b.s);

@@ -39,7 +39,7 @@ clean:
 
 fclean: clean
 	@make -sC $(LIB_DIR) $@
-	@rm checker
-	@rm push_swap
+	@rm -f checker
+	@rm -f push_swap
 
 re: fclean all
