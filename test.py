@@ -2,6 +2,7 @@ import random
 import os
 
 levels = [3, 5, 100, 500]
+levels = [5]
 
 for level in levels:
     nums = " ".join([str(i) for i in random.sample(range(level), level)])

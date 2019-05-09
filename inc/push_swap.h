@@ -14,6 +14,7 @@ struct	s_stack {
 typedef struct s_stack	t_stack;
 
 void	simple_sort(t_stack *a, t_stack *b);
+void	small_sort(t_stack *a, t_stack *b, int n);
 
 int     valid_int(char *str);
 int		has_duplicate(int *a, int n);

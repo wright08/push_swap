@@ -13,6 +13,7 @@ SRC = \
 	stack\
 	utils\
 	simple_sort\
+	small_sort\
 	push_swap\
 	checker
 

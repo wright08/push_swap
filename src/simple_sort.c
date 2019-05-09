@@ -1,5 +1,69 @@
 #include "push_swap.h"
 
+/*
+**	1 3 2 -> rra
+**	2 3 1 -> rra, sa
+**	2 1 3 -> ra
+**	3 1 2 -> sa
+**	1 2 3 -> sa, rra
+*/
+void	sort_3(t_stack *stack_a, t_stack *stack_b)
+{
+	const int	a = stack_a->s[stack_a->top];
+	const int	b = stack_a->s[stack_a->top - 1];
+	const int	c = stack_a->s[stack_a->top - 2];
+
+	(void)stack_b;
+	if (a < b && b > c)
+	{
+		retate(stack_a);
+		if (c > a)
+			swap(stack_a);
+	}
+	else if (a > b && b < c && c < a)
+		rotate(stack_a);
+	else if (a > b && b < c) 
+		swap(stack_a);
+	else if (a > b && b > c)
+	{
+		swap(stack_a);
+		retate(stack_a);
+	}
+}
+
+
+void	sort_5(t_stack *a, t_stack *b)
+{
+	int		rotations;
+	int		end;
+	int		special;
+
+	push(b, a);
+	push(b, a);
+	sort_3(a, b);
+	if (b->s[0] < b->s[1])
+		swap(b);
+	rotations = 0;
+	special = 0;
+	if (b->s[1] > a->s[0])
+		special = 2;
+	else if (b->s[0] > a->s[0])
+		special = 1;
+	end = a->s[0];
+	while (a->s[a->top] != end)
+	{
+		if (b->s[b->top] < a->s[a->top])
+			push(a, b);
+		else
+		{
+			rotate(a);
+			rotations++;
+		}
+	}
+	while (rotations++ < 5)
+		rotate(a);
+}
+
 // We could
 // 1. Take the value underneath the top of the stack
 // 2. Take the value at the bottom of the stack
@@ -47,18 +111,10 @@ void	get_next_val(t_stack *a, t_stack *b)
 
 void	simple_sort(t_stack *a, t_stack *b)
 {
-	setup(a, b);
-	while (b->top >= 0)
-		get_next_val(a, b);
+	if (a->top == 2)
+		sort_3(a, b);
+	else if (a->top == 4)
+		sort_5(a, b);
+	else
+		small_sort(a, b, a->top + 1);
 }
-
-// Determine if the largest stack is closer by r or rr, then do that until its at the top of the stack
-// push it onto the stack
-// Do until b is empty
-
-
-// 1 3 4 2 5
-// 0 1 2 3 4
-
-// 5 4 3 2 1
-// 5 2 3 4 1
